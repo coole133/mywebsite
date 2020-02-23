@@ -45,7 +45,7 @@ $(".hamburger").on("click", function() {
   $(".menu-btn").toggleClass("menu-active");
 });
 
-$(".paragraph").on("click", function(e) {
+$(".paragraph--mobile").on("click", function(e) {
   e.currentTarget.parentNode.parentNode.classList.remove("menu-active");
   $(".hamburger").toggleClass("cross");
 });

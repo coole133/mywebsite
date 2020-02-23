@@ -125,6 +125,13 @@ body {
   text-transform: uppercase;
   color: white;
   padding: 0 20px 0 20px;
+  height: 80px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .manage .paragraph {
@@ -1086,8 +1093,9 @@ h2 {
 }
 
 .is-highlated {
-  -webkit-animation-name: highlating;
-          animation-name: highlating;
+  background-color: wheat;
+  border-bottom: 5px solid #282828;
+  border-radius: 5px;
 }
 
 .tab-content {
