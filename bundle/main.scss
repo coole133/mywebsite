@@ -108,6 +108,9 @@ body {
     text-transform: uppercase;
     color: white;
     padding: 0 20px 0 20px;
+    height: 80px;
+    align-items: center;
+    display: flex;
   }
 }
 
@@ -873,7 +876,9 @@ h2 {
 }
 
 .is-highlated {
-  animation-name: highlating;
+  background-color: wheat;
+  border-bottom: 5px solid #282828;
+  border-radius: 5px;
 }
 
 .tab-content {
