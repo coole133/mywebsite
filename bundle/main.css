@@ -1258,7 +1258,15 @@ h2 {
   }
   .modalcontainer {
     left: -250px;
-    width: 380px;
+    width: 270px;
+    top: 25px;
+  }
+  .input {
+    width: 200px;
+    height: 30px;
+  }
+  .submit {
+    width: 100px;
   }
 }
 
