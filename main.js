@@ -40,9 +40,14 @@ $(document).ready(function() {
   });
 });
 
-$(".hamburger").on("click", function() {
+$(".hamburger").on("click", function(e) {
   $(".hamburger").toggleClass("cross");
   $(".menu-btn").toggleClass("menu-active");
+  if (!$(".navigation").hasClass("scrolled")) {
+    e.currentTarget.parentNode.classList.toggle("scrolled");
+  } else if ($(".navigation").hasClass("scrolled")) {
+    // e.currentTarget.parentNode.classList.remove("scrolled");
+  }
 });
 
 $(".paragraph--mobile").on("click", function(e) {
