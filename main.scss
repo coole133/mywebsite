@@ -6,6 +6,8 @@ html {
 
 a {
   color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 * {
@@ -50,7 +52,7 @@ body {
 }
 
 .scrolled {
-  background-color: yellowgreen;
+  background-color: #282828;
 }
 
 .hamburger {
@@ -64,6 +66,11 @@ body {
 
 .menu-btn {
   display: none;
+}
+
+.menu-btn__container {
+  padding-left: 20px;
+  padding-bottom: 30px;
 }
 
 .manage-icon {
@@ -117,6 +124,123 @@ body {
   color: white;
   font-weight: bold;
   font-size: 26px;
+  position: relative;
+}
+
+.login {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.blockw {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.modalcontainer {
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  position: absolute;
+  background-color: #282828;
+  align-items: center;
+  justify-content: center;
+  right: -300px;
+  top: 260px;
+  display: none;
+  transition: 750ms ease;
+}
+
+.modalWindow {
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  margin-top: 90px;
+}
+
+.input {
+  width: 250px;
+  height: 49px;
+  font-size: 20px;
+  border: 3px solid wheat;
+  margin: 10px 0;
+}
+
+.submit {
+  background-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 150px;
+  height: 30px;
+  font-size: 18px;
+  margin-top: 30px;
+  margin-left: 100px;
+}
+
+.cross--modal {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+
+.submit::after {
+  width: 0;
+}
+
+.popup {
+  display: block;
+  transition: 750ms ease;
+  box-shadow: 0 0 100px black;
+}
+
+.paragraph {
+  cursor: pointer;
+}
+
+.arrow-m {
+  cursor: pointer;
+}
+
+.logining {
+  color: white;
+  text-transform: uppercase;
+  padding-right: 40px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.login:hover {
+  animation-name: bounce-7;
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+@keyframes bounce-7 {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-20px);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
 }
 
 .content {
@@ -678,13 +802,22 @@ h2 {
   flex-direction: column;
   color: white;
   text-align: left;
-  font-weight: bold;
-  transition: all 0.4s linear;
   position: absolute;
   left: 0;
-  background-color: yellowgreen;
   z-index: 1;
   top: 80px;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+}
+
+.menu-active {
+  background: linear-gradient(
+    to right,
+    rgba(40, 40, 40, 1),
+    rgba(40, 40, 40, 0)
+  );
+  animation-name: slideInLeft;
 }
 
 .shop-active {
@@ -692,29 +825,26 @@ h2 {
   flex-direction: column;
   color: white;
   text-align: left;
-  font-weight: bold;
-  transition: all 0.4s linear;
   position: absolute;
   right: 0;
-  background-color: yellowgreen;
+  background-color: #282828;
   top: 80px;
   z-index: 1;
+}
+
+.menu-active {
+  .paragraph {
+    padding: 40px 20px;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+  }
 }
 
 .shop-active {
   .paragraph {
     padding: 20px 20px;
     text-transform: uppercase;
-    text-decoration: underline;
-    background-color: transparent;
-  }
-}
-
-.menu-active {
-  .paragraph {
-    padding: 20px 20px;
-    text-transform: uppercase;
-    text-decoration: underline;
     background-color: transparent;
   }
 }
@@ -737,8 +867,13 @@ h2 {
   display: flex;
 }
 
+.tab-name {
+  cursor: pointer;
+  color: black;
+}
+
 .is-highlated {
-  text-decoration: underline;
+  animation-name: highlating;
 }
 
 .tab-content {
@@ -750,19 +885,43 @@ h2 {
 }
 
 .second__photo {
-  background-image: url("./images/Img2.png");
+  background-image: url("./images/2river.jpg");
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  margin-bottom: 20px;
+  transition: 750ms ease;
+}
+
+.second__photo--down {
+  background-image: url("./images/2road.jpg");
+}
+
+.third__photo {
+  background-image: url("./images/3lake.jpg");
   height: 300px;
   width: 100%;
   background-size: cover;
   margin-bottom: 20px;
 }
 
-.third__photo {
-  background-image: url("./images/Img1.png");
-  height: 300px;
-  width: 100%;
-  background-size: cover;
-  margin-bottom: 20px;
+.third__photo--down {
+  background-image: url("./images/3stairs.jpg");
+}
+
+.natural__logosDown {
+  display: none;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 @media screen and (max-width: 1040px) {
@@ -779,6 +938,11 @@ h2 {
   .hamburger {
     display: flex;
   }
+
+  .modalcontainer {
+    right: -351px;
+    width: 500px;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -788,7 +952,8 @@ h2 {
 
   .photos {
     margin: 0;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .content__text {
@@ -815,6 +980,10 @@ h2 {
   .content .title {
     font-size: 39px;
   }
+
+  .natural__product {
+    background-image: none;
+  }
 }
 
 @media screen and (max-width: 620px) {
@@ -830,12 +999,6 @@ h2 {
 @media screen and (max-width: 550px) {
   .border {
     display: none;
-  }
-}
-
-@media screen and (max-width: 525px) {
-  .natural__logos {
-    width: 420px;
   }
 }
 
@@ -862,18 +1025,25 @@ h2 {
   .manage-icon {
     display: flex;
   }
+
+  .modalcontainer {
+    left: -250px;
+    width: 380px;
+  }
 }
 
-@media screen and (max-width: 510px) {
+@media screen and (max-width: 540px) {
   .natural__logos {
-    margin-top: 30px;
-    width: 220px;
+    background-image: url("./images/1LOGOS.png");
+    width: 259px;
+    height: 84px;
   }
 
-  .natural__product {
-    width: 100%;
-    background-size: cover;
-    height: 187px;
+  .natural__logosDown {
+    display: block;
+    background-image: url("./images/2LOGOS.png");
+    width: 247px;
+    height: 72px;
   }
 
   .down-text--pictured {

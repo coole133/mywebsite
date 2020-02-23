@@ -45,9 +45,25 @@ $(".hamburger").on("click", function() {
   $(".menu-btn").toggleClass("menu-active");
 });
 
+$(".paragraph").on("click", function(e) {
+  e.currentTarget.parentNode.parentNode.classList.remove("menu-active");
+});
+
 $(".manage-icon").on("click", function() {
   $(".manage-icon").toggleClass("cross");
   $(".shop-btn").toggleClass("shop-active");
+});
+
+$(".login").on("click", function() {
+  $(".modalcontainer").toggleClass("popup");
+});
+
+$(".cross--modal").on("click", function(e) {
+  e.currentTarget.parentNode.parentNode.classList.remove("popup");
+});
+
+$(".submit").on("click", function(e) {
+  e.currentTarget.parentNode.parentNode.classList.remove("popup");
 });
 
 $(window).scroll(function() {
@@ -64,6 +80,12 @@ function activation(element) {
   element.classList.add("is-activated");
 }
 
+function deactivation() {
+  question.forEach(item => {
+    item.classList.remove("is-activated");
+  });
+}
+
 const questionsContainer = document.querySelector(".questions");
 
 questionsContainer.addEventListener("click", e => {
@@ -75,13 +97,13 @@ questionsContainer.addEventListener("click", e => {
     !parentNode.classList.contains("is-activated")
   ) {
     activation(parentNode);
+  } else if (
+    target.classList.contains("tab") &&
+    parentNode.classList.contains("is-activated")
+  ) {
+    deactivation();
   }
 });
-
-// Так більше не робити!
-// question.forEach(item => {
-//   item.addEventListener("click", activation);
-// });
 
 let tabs = document.querySelectorAll(".tab-name");
 let tabContent = document.querySelectorAll(".tab-content");
