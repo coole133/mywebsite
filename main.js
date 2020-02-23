@@ -47,6 +47,7 @@ $(".hamburger").on("click", function() {
 
 $(".paragraph").on("click", function(e) {
   e.currentTarget.parentNode.parentNode.classList.remove("menu-active");
+  $(".hamburger").toggleClass("cross");
 });
 
 $(".manage-icon").on("click", function() {
