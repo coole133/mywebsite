@@ -73,7 +73,7 @@ $(".submit").on("click", function(e) {
 });
 
 $(window).scroll(function() {
-  $(".navigation").toggleClass("scrolled", $(this).scrollTop() > 850);
+  $(".navigation").toggleClass("scrolled", $(this).scrollTop() > 10);
 });
 
 let question = document.querySelectorAll(".question");
@@ -97,6 +97,8 @@ const questionsContainer = document.querySelector(".questions");
 questionsContainer.addEventListener("click", e => {
   const target = e.target;
   const parentNode = target.parentNode;
+  // console.log(target);
+  // console.log(parentNode);
 
   if (
     target.classList.contains("tab") &&
@@ -135,3 +137,52 @@ function selectTabContent(tabId) {
 tabs.forEach(item => {
   item.addEventListener("click", highlite);
 });
+
+let array = [];
+
+function shop() {
+  function push(buy) {
+    var buyNum = "(" + buy + ")";
+    let buyMob = "(" + buy + ")";
+    const cartNum = document.getElementById("cart");
+    const cartMobile = document.getElementById("cart--hidden");
+    cartNum.innerHTML = buyNum;
+    cartMobile.innerHTML = buyMob;
+  }
+
+  push(buy());
+
+  function buy() {
+    array.push(1);
+    return array.length;
+  }
+}
+
+let buttons = document.querySelectorAll(".button--prod");
+buttons.forEach(function(element) {
+  element.addEventListener("click", shop);
+});
+
+let openWindow = document.getElementById("openModal");
+let closeWindow = document.getElementById("closeModal");
+
+function openModal() {
+  if (!$("#overlay").hasClass("active")) {
+    $("#overlay").toggleClass("active");
+  } else if ($("#overlay").hasClass("active")) {
+    $("#overlay").remove("active");
+  }
+  if (!$(".login__panel").hasClass("active")) {
+    $(".login__panel").toggleClass("active");
+  } else if ($(".login__panel").hasClass("active")) {
+    $(".login__panel").remove("active");
+  }
+}
+
+function closeModal(e) {
+  e.target.parentNode.classList.remove("active");
+  e.target.parentNode.parentNode.classList.remove("active");
+}
+
+openWindow.addEventListener("click", openModal);
+closeWindow.addEventListener("click", closeModal);
