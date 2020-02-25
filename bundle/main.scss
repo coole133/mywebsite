@@ -20,6 +20,81 @@ body {
   background-color: #f7f8f3;
 }
 
+.login__panel {
+  transition: 200ms ease-in-out;
+  width: 300px;
+  padding: 40px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 40;
+  text-align: center;
+  background: #191919;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.login__panel.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.login__panel {
+  h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
+
+.login__panel {
+  input {
+    border: none;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid white;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 30px;
+    transition: 0.25s;
+  }
+}
+
+.login__panel input[type="login"]:focus,
+.login__panel input[type="password"]:focus {
+  width: 280px;
+  border-color: #6e774a;
+}
+
+.login__panel input[type="submit"] {
+  border-color: #6e774a;
+  cursor: pointer;
+}
+
+.login__panel input[type="submit"]:hover {
+  background: #6e774a;
+}
+
+#overlay {
+  position: fixed;
+  transition: 200ms ease-in-out;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
 .section {
   width: 100%;
 }
@@ -130,6 +205,13 @@ body {
   position: relative;
 }
 
+.close-modal {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+}
+
 .login {
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -141,64 +223,8 @@ body {
   justify-content: center;
 }
 
-.modalcontainer {
-  width: 800px;
-  height: 400px;
-  margin: 0 auto;
-  position: absolute;
-  background-color: #282828;
-  align-items: center;
-  justify-content: center;
-  right: -300px;
-  top: 260px;
-  display: none;
-  transition: 750ms ease;
-}
-
-.modalWindow {
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
+.cart {
   display: flex;
-  margin-top: 90px;
-}
-
-.input {
-  width: 250px;
-  height: 49px;
-  font-size: 20px;
-  border: 3px solid wheat;
-  margin: 10px 0;
-}
-
-.submit {
-  background-color: white;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  width: 150px;
-  height: 30px;
-  font-size: 18px;
-  margin-top: 30px;
-  margin-left: 100px;
-}
-
-.cross--modal {
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-}
-
-.submit::after {
-  width: 0;
-}
-
-.popup {
-  display: block;
-  transition: 750ms ease;
-  box-shadow: 0 0 100px black;
 }
 
 .paragraph {
@@ -215,35 +241,6 @@ body {
   padding-right: 40px;
   font-size: 20px;
   cursor: pointer;
-}
-
-.login:hover {
-  animation-name: bounce-7;
-  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
-}
-
-@keyframes bounce-7 {
-  0% {
-    transform: scale(1, 1) translateY(0);
-  }
-  10% {
-    transform: scale(1.1, 0.9) translateY(0);
-  }
-  30% {
-    transform: scale(0.9, 1.1) translateY(-20px);
-  }
-  50% {
-    transform: scale(1.05, 0.95) translateY(0);
-  }
-  57% {
-    transform: scale(1, 1) translateY(-7px);
-  }
-  64% {
-    transform: scale(1, 1) translateY(0);
-  }
-  100% {
-    transform: scale(1, 1) translateY(0);
-  }
 }
 
 .content {
@@ -295,6 +292,7 @@ body {
     border-top: none;
     margin: 0;
     outline: none;
+    cursor: pointer;
   }
 
   .option {
@@ -629,8 +627,7 @@ h2 {
   line-height: 30px;
   width: 65%;
   letter-spacing: 2px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 70px;
 }
 
 .authur {
@@ -651,6 +648,13 @@ h2 {
   display: flex;
   flex-direction: row;
   border: 1px solid white;
+}
+
+.manager--absolute {
+  position: absolute;
+  bottom: 715px;
+  transform: translate(-50%, -50%);
+  left: 50%;
 }
 
 .arrow__container--right {
@@ -918,6 +922,10 @@ h2 {
   display: none;
 }
 
+.section--last {
+  position: relative;
+}
+
 @keyframes slideInLeft {
   from {
     transform: translate3d(-100%, 0, 0);
@@ -926,6 +934,12 @@ h2 {
 
   to {
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .natural__container {
+    width: 90%;
   }
 }
 
@@ -943,11 +957,6 @@ h2 {
   .hamburger {
     display: flex;
   }
-
-  .modalcontainer {
-    right: -351px;
-    width: 500px;
-  }
 }
 
 @media screen and (max-width: 800px) {
@@ -957,7 +966,7 @@ h2 {
 
   .photos {
     margin: 0;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -989,11 +998,15 @@ h2 {
   .natural__product {
     background-image: none;
   }
+
+  .manager--absolute {
+    bottom: 780px;
+  }
 }
 
 @media screen and (max-width: 620px) {
   .questions {
-    width: 100%;
+    width: 90%;
   }
   .is-activated::after {
     margin-left: 20px;
@@ -1004,6 +1017,12 @@ h2 {
 @media screen and (max-width: 550px) {
   .border {
     display: none;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .manager--absolute {
+    bottom: 860px;
   }
 }
 
@@ -1031,19 +1050,9 @@ h2 {
     display: flex;
   }
 
-  .modalcontainer {
-    left: -250px;
-    width: 300px;
-    top: 100px;
-  }
-
   .input {
     width: 200px;
     height: 30px;
-  }
-
-  .submit {
-    width: 100px;
   }
 }
 
@@ -1063,7 +1072,7 @@ h2 {
 
   .down-text--pictured {
     left: -30px;
-    bottom: 190px;
+    bottom: 222px;
   }
 }
 
@@ -1080,6 +1089,10 @@ h2 {
   .text {
     font-size: 18px;
     text-align: center;
+  }
+
+  .manager--absolute {
+    bottom: 928px;
   }
 
   .info {
@@ -1106,16 +1119,36 @@ h2 {
   }
 
   .plus {
-    width: 17px;
+    width: 24px;
     margin-left: 10px;
   }
 
   .plus--responsive--1 {
-    width: 23px;
+    width: 35px;
   }
 
   .plus--responsive {
-    width: 19px;
+    width: 30px;
+  }
+
+  .content .option {
+    padding-right: 0;
+    font-size: 11px;
+  }
+
+  .login__panel {
+    width: 200px;
+  }
+
+  .login__panel {
+    input {
+      width: 150px;
+    }
+  }
+
+  .login__panel input[type="login"]:focus,
+  .login__panel input[type="password"]:focus {
+    width: 180px;
   }
 }
 
@@ -1139,7 +1172,7 @@ h2 {
 
 @media screen and (max-width: 360px) {
   .content .title {
-    font-size: 28px;
+    font-size: 23px;
   }
   .content button {
     margin-top: 20px;
