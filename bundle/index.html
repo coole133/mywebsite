@@ -33,7 +33,7 @@
           </div>
           <div class="shop-btn">
             <p class="paragraph">search</p>
-            <div class="cart paragraph">cart<div class="cart" id="cart--hidden">(0)</div></div>
+            <div id="shopOpen" class="cart paragraph">cart<div class="cart" id="cart--hidden">(0)</div></div>
           </div>
           <div class="hamburger">
           </div>
@@ -44,7 +44,7 @@
           <div class="manage-icon"></div>
           <div class="manage">
             <p class="paragraph">search</p>
-            <div class="cart paragraph">cart<div class="cart" id="cart">(0)</div></div>
+            <div id="shopOpen"class="cart paragraph">cart<div class="cart" id="cart">(0)</div></div>
           </div>
         </div>
         <div class="content content--first">
@@ -63,6 +63,21 @@
           <div class="line"></div>
         </div>
       </div>
+    </div>
+
+    <div class="shopping-list">
+      <div class="cross close-modal" id="closeShop"></div>
+      <div class="shopping__container">
+</div>
+<div class="bottomOfList">
+<div class="buyItems">
+  <div class="purchase__button"><button class="purchase">Purchase</button></div>
+  </div>
+<div class="total">
+  <p>Total price: </p>
+  <p class="cart-total">0$</p>
+</div>
+</div>
     </div>
 
     <div id="overlay">
@@ -193,16 +208,58 @@
                   <div class="star"></div>
                 </div>
                 <div class="products__text">
-                  CBD 500 mg Orange Flavor Tincture
+                  Bottle
                 </div>
-                <div class="image"></div>
+                <img class="image" src="./images/product_bottle.png">
               </div>
               <div class="product__bottom">
                 <div class="price">
                   <p>$49.99 USD</p>
                 </div>
                 <div class="product__button">
-                  <button class="button--prod">shop</button>
+                  <button class="button--prod primary-btn">shop</button>
+                </div>
+              </div>
+            </div>
+            <div class="products__second">
+              <div class="product__main">
+                <div class="stars">
+                  <div class="star"></div>
+                  <div class="star"></div>
+                  <div class="star"></div>
+                  <div class="star"></div>
+                  <div class="star"></div>
+                </div>
+                <div class="products__text">
+                  Pack
+                </div>
+                <img class="image" src="./images/product_pack.png">
+              </div>
+              <div class="product__bottom">
+                <div class="price"><p>$49.99 USD</p></div>
+                <div class="product__button">
+                  <button class="button--prod second-btn">shop</button>
+                </div>
+              </div>
+            </div>
+            <div class="products__third">
+              <div class="product__main">
+                <div class="stars">
+                  <div class="star"></div>
+                  <div class="star"></div>
+                  <div class="star"></div>
+                  <div class="star"></div>
+                  <div class="star"></div>
+                </div>
+                <div class="products__text">
+                  Package
+                </div>
+                <img class="image" src="./images/product_package.png">
+              </div>
+              <div class="product__bottom">
+                <div class="price"><p>$79.99 USD</p></div>
+                <div class="product__button">
+                  <button class="button--prod third-btn">shop</button>
                 </div>
               </div>
             </div>
@@ -216,16 +273,16 @@
                   <div class="star"></div>
                 </div>
                 <div class="products__text">
-                  CBD 500 mg Orange Flavor Tincture
+                  Bottle
                 </div>
-                <div class="image"></div>
+                <img class="image" src="./images/product_bottle.png">
               </div>
               <div class="product__bottom">
                 <div class="price">
                   <p>$49.99 USD</p>
                 </div>
                 <div class="product__button">
-                  <button class="button--prod">shop</button>
+                  <button class="button--prod primary-btn">shop</button>
                 </div>
               </div>
             </div>
@@ -239,35 +296,14 @@
                   <div class="star"></div>
                 </div>
                 <div class="products__text">
-                  Black ICE CBD Muscle Rub 200 mg
+                  Pack
                 </div>
-                <div class="image"></div>
+                <img class="image" src="./images/product_pack.png">
               </div>
               <div class="product__bottom">
                 <div class="price"><p>$49.99 USD</p></div>
                 <div class="product__button">
-                  <button class="button--prod">shop</button>
-                </div>
-              </div>
-            </div>
-            <div class="products__second">
-              <div class="product__main">
-                <div class="stars">
-                  <div class="star"></div>
-                  <div class="star"></div>
-                  <div class="star"></div>
-                  <div class="star"></div>
-                  <div class="star"></div>
-                </div>
-                <div class="products__text">
-                  Black ICE CBD Muscle Rub 200 mg
-                </div>
-                <div class="image"></div>
-              </div>
-              <div class="product__bottom">
-                <div class="price"><p>$49.99 USD</p></div>
-                <div class="product__button">
-                  <button class="button--prod">shop</button>
+                  <button class="button--prod second-btn">shop</button>
                 </div>
               </div>
             </div>
@@ -281,35 +317,14 @@
                   <div class="star"></div>
                 </div>
                 <div class="products__text">
-                  CBD+Curcumin Coffee 750 mg
+                  Package
                 </div>
-                <div class="image"></div>
+                <img class="image" src="./images/product_package.png">
               </div>
               <div class="product__bottom">
                 <div class="price"><p>$79.99 USD</p></div>
                 <div class="product__button">
-                  <button class="button--prod">shop</button>
-                </div>
-              </div>
-            </div>
-            <div class="products__third">
-              <div class="product__main">
-                <div class="stars">
-                  <div class="star"></div>
-                  <div class="star"></div>
-                  <div class="star"></div>
-                  <div class="star"></div>
-                  <div class="star"></div>
-                </div>
-                <div class="products__text">
-                  CBD+Curcumin Coffee 750 mg
-                </div>
-                <div class="image"></div>
-              </div>
-              <div class="product__bottom">
-                <div class="price"><p>$79.99 USD</p></div>
-                <div class="product__button">
-                  <button class="button--prod">shop</button>
+                  <button class="button--prod third-btn">shop</button>
                 </div>
               </div>
             </div>
@@ -436,9 +451,10 @@
           <div class="border"></div>
           <div class="content__footer">
             <div class="info">
-              <p class="info__text info__text--first">privacy policy</p>
-              <p class="info__text">terms of use</p>
-              <p class="info__text">return policy</p>
+              <div class=" info__popup info__popup--left">Text will be added later :)</div>
+              <p class="info__text info__left info__text--first">privacy policy</p>
+              <p class="info__text info__left">terms of use</p>
+              <p class="info__text info__left">return policy</p>
             </div>
             <div class="socials">
               <div class="social facebook"></div>
@@ -446,16 +462,22 @@
               <div class="social youtube"></div>
             </div>
             <div class="info">
-              <p class="info__text info__text--first">shopping info</p>
-              <p class="info__text">returns / exchanges</p>
-              <p class="info__text">contact</p>
+              <div class="info__popup info__popup--right">Text will be added later :)</div>
+              <p class="info__text info__right info__text--first">shopping info</p>
+              <p class="info__text info__right">returns / exchanges</p>
+              <p class="info__text info__right">contact</p>
             </div>
           </div>
           <div class="footer">
             <div class="text">subscribe to newsletter</div>
             <div class="footer--btn">
-              <div class="email">Email</div>
-              <div class="arrow__green--right arrow-footer"></div>
+              <form class="footer-submit">
+              <input class="email" placeholder="Email">
+              <label>
+                <input type="submit">
+                <div class="arrow__green--right arrow-footer"></div>
+              </label>
+            </form>
             </div>
             <div class="copyright">
               © 2018 . cbd health
