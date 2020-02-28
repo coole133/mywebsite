@@ -45,7 +45,7 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 9;
+  z-index: 1;
   text-align: center;
   transform: translate(-20%, -50%) scale(0);
   border-radius: 15px;
@@ -912,7 +912,7 @@ h2 {
   font-size: 19px;
   position: absolute;
   top: 10px;
-  z-index: 5;
+  z-index: 0;
   border-radius: 15px;
   width: 350px;
   height: 50px;
@@ -972,7 +972,7 @@ h2 {
   text-align: left;
   position: absolute;
   left: 0;
-  z-index: 1;
+  z-index: 3;
   top: 80px;
   height: 100vh;
   width: 100%;
