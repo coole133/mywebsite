@@ -57,14 +57,14 @@ body {
   left: 50%;
   z-index: 9;
   text-align: center;
-  -webkit-transform: translate(-20%, -100%) scale(0);
-          transform: translate(-20%, -100%) scale(0);
+  -webkit-transform: translate(-20%, -50%) scale(0);
+          transform: translate(-20%, -50%) scale(0);
   border-radius: 15px;
 }
 
 .shopping-list.active {
-  -webkit-transform: translate(-20%, -95%) scale(1);
-          transform: translate(-20%, -95%) scale(1);
+  -webkit-transform: translate(-20%, -50%) scale(1);
+          transform: translate(-20%, -50%) scale(1);
 }
 
 .buyItems {
@@ -1401,8 +1401,8 @@ form.footer-submit input[type="submit"] {
     display: flex;
   }
   .shopping-list.active {
-    -webkit-transform: translate(-40%, -90%) scale(1);
-            transform: translate(-40%, -90%) scale(1);
+    -webkit-transform: translate(-40%, -50%) scale(1);
+            transform: translate(-40%, -50%) scale(1);
   }
 }
 
@@ -1452,8 +1452,8 @@ form.footer-submit input[type="submit"] {
     bottom: 780px;
   }
   .shopping-list.active {
-    -webkit-transform: translate(-40%, -90%) scale(1);
-            transform: translate(-40%, -90%) scale(1);
+    -webkit-transform: translate(-40%, -50%) scale(1);
+            transform: translate(-40%, -50%) scale(1);
     width: 350px;
   }
 }
@@ -1473,8 +1473,8 @@ form.footer-submit input[type="submit"] {
     display: none;
   }
   .shopping-list.active {
-    -webkit-transform: translate(-50%, -90%) scale(1);
-            transform: translate(-50%, -90%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
     width: 300px;
   }
   .row {
