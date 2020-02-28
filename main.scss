@@ -47,14 +47,12 @@ body {
   left: 50%;
   z-index: 9;
   text-align: center;
-  // transform: translate(-50%, -50%) scale(1);
-  // transform: translate(29%, -169%) scale(1);
-  transform: translate(-20%, -100%) scale(0);
+  transform: translate(-20%, -50%) scale(0);
   border-radius: 15px;
 }
 
 .shopping-list.active {
-  transform: translate(-20%, -95%) scale(1);
+  transform: translate(-20%, -50%) scale(1);
 }
 
 .buyItems {
@@ -1156,7 +1154,7 @@ form.footer-submit input[type="submit"] {
   }
 
   .shopping-list.active {
-    transform: translate(-40%, -90%) scale(1);
+    transform: translate(-40%, -50%) scale(1);
   }
 }
 
@@ -1205,7 +1203,7 @@ form.footer-submit input[type="submit"] {
   }
 
   .shopping-list.active {
-    transform: translate(-40%, -90%) scale(1);
+    transform: translate(-40%, -50%) scale(1);
     width: 350px;
   }
 }
@@ -1226,7 +1224,7 @@ form.footer-submit input[type="submit"] {
   }
 
   .shopping-list.active {
-    transform: translate(-50%, -90%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
     width: 300px;
   }
 
