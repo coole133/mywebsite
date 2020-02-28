@@ -1326,7 +1326,7 @@ h2 {
   color: #6e774a;
 }
 
-form {
+.footer-submit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1571,6 +1571,9 @@ form.footer-submit input[type="submit"] {
     -webkit-transform: translate(0%, 0%) scale(1);
             transform: translate(0%, 0%) scale(1);
     left: 0;
+  }
+  .email {
+    width: 200px;
   }
 }
 

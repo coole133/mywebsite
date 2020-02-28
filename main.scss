@@ -1097,7 +1097,7 @@ h2 {
   color: #6e774a;
 }
 
-form {
+.footer-submit {
   display: flex;
 }
 
@@ -1334,6 +1334,10 @@ form.footer-submit input[type="submit"] {
   .info__popup.active {
     transform: translate(0%, 0%) scale(1);
     left: 0;
+  }
+
+  .email {
+    width: 200px;
   }
 }
 
