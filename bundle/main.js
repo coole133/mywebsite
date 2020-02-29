@@ -197,11 +197,26 @@ let openShop = document.querySelectorAll("#shopOpen");
 
 let closeShop = document.getElementById("closeShop");
 
-function openShopList() {
+function openShopList(e) {
   if (!$(".shopping-list").hasClass("active")) {
     $(".shopping-list").toggleClass("active");
   } else if ($(".shopping-list").hasClass("active")) {
     $(".shopping-list").remove("active");
+  }
+  let shopButton = document.querySelectorAll(".shop-btn");
+  let icon = document.querySelector(".manage-icon");
+  if (icon.classList.contains("cross")) {
+    icon.classList.remove("cross");
+  } else {
+    icon.classList.add("cross");
+  }
+
+  for (let i = 0; i < shopButton.length; i++) {
+    if (shopButton[i].classList.contains("shop-active")) {
+      shopButton[i].classList.remove("shop-active");
+    } else {
+      shopButton[i].classList.add("shop-active");
+    }
   }
 }
 
@@ -216,35 +231,25 @@ for (let item of openShop) {
 
 closeShop.addEventListener("click", closeShopModal);
 
-if (document.readyState == "loading") {
-  document.addEventListener("DOMContentLoaded", ready);
-} else {
-  ready();
+let removeCartButtons = document.querySelectorAll(".danger__button");
+for (let i = 0; i < removeCartButtons.length; i++) {
+  let button = removeCartButtons[i];
+  button.addEventListener("click", removeCartItem);
 }
 
-function ready() {
-  let removeCartButtons = document.querySelectorAll(".danger__button");
-  for (let i = 0; i < removeCartButtons.length; i++) {
-    let button = removeCartButtons[i];
-    button.addEventListener("click", removeCartItem);
-  }
-
-  let quantityInputs = document.querySelectorAll(".item__quantity");
-  for (let i = 0; i < quantityInputs.length; i++) {
-    let input = quantityInputs[i];
-    input.addEventListener("change", quantityChanged);
-  }
-
-  let addToCart = document.querySelectorAll(".button--prod");
-  for (let i = 0; i < addToCart.length; i++) {
-    let button = addToCart[i];
-    button.addEventListener("click", addToCartClicked);
-  }
-
-  document
-    .querySelector(".purchase")
-    .addEventListener("click", purchaseClicked);
+let quantityInputs = document.querySelectorAll(".item__quantity");
+for (let i = 0; i < quantityInputs.length; i++) {
+  let input = quantityInputs[i];
+  input.addEventListener("change", quantityChanged);
 }
+
+let addToCart = document.querySelectorAll(".button--prod");
+for (let i = 0; i < addToCart.length; i++) {
+  let button = addToCart[i];
+  button.addEventListener("click", addToCartClicked);
+}
+
+document.querySelector(".purchase").addEventListener("click", purchaseClicked);
 
 function purchaseClicked() {
   alert("Thank you for your purchase");
