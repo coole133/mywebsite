@@ -1,4 +1,6 @@
-$(document).ready(function() {
+"use strict";
+
+$(document).ready(function () {
   $(".grid-container").slick({
     infinite: true,
     slidesToShow: 3,
@@ -8,28 +10,25 @@ $(document).ready(function() {
     nextArrow: $(".arrow__right"),
     speed: 1000,
     easing: "easeOutExpo",
-    responsive: [
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true
-        }
-      },
-      {
-        breakpoint: 650,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true
-        }
+    responsive: [{
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true
       }
-    ]
+    }, {
+      breakpoint: 650,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true
+      }
+    }]
   });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
   $(".manageDisplay").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -40,7 +39,7 @@ $(document).ready(function() {
   });
 });
 
-$(".hamburger").on("click", function(e) {
+$(".hamburger").on("click", function (e) {
   $(".hamburger").toggleClass("cross");
   $(".menu-btn").toggleClass("menu-active");
   if (!$(".navigation").hasClass("scrolled")) {
@@ -50,24 +49,24 @@ $(".hamburger").on("click", function(e) {
   }
 });
 
-$(".paragraph--mobile").on("click", function(e) {
+$(".paragraph--mobile").on("click", function (e) {
   e.currentTarget.parentNode.parentNode.classList.remove("menu-active");
   $(".hamburger").toggleClass("cross");
 });
 
-$(".manage-icon").on("click", function() {
+$(".manage-icon").on("click", function () {
   $(".manage-icon").toggleClass("cross");
   $(".shop-btn").toggleClass("shop-active");
 });
 
-$(window).scroll(function() {
+$(window).scroll(function () {
   $(".navigation").toggleClass("scrolled", $(this).scrollTop() > 10);
 });
 
-let question = document.querySelectorAll(".question");
+var question = document.querySelectorAll(".question");
 
 function activation(element) {
-  question.forEach(item => {
+  question.forEach(function (item) {
     item.classList.remove("is-activated");
   });
 
@@ -75,38 +74,32 @@ function activation(element) {
 }
 
 function deactivation() {
-  question.forEach(item => {
+  question.forEach(function (item) {
     item.classList.remove("is-activated");
   });
 }
 
-const questionsContainer = document.querySelector(".questions");
+var questionsContainer = document.querySelector(".questions");
 
-questionsContainer.addEventListener("click", e => {
-  const target = e.target;
-  const parentNode = target.parentNode;
+questionsContainer.addEventListener("click", function (e) {
+  var target = e.target;
+  var parentNode = target.parentNode;
   // console.log(target);
   // console.log(parentNode);
 
-  if (
-    target.classList.contains("tab") &&
-    !parentNode.classList.contains("is-activated")
-  ) {
+  if (target.classList.contains("tab") && !parentNode.classList.contains("is-activated")) {
     activation(parentNode);
-  } else if (
-    target.classList.contains("tab") &&
-    parentNode.classList.contains("is-activated")
-  ) {
+  } else if (target.classList.contains("tab") && parentNode.classList.contains("is-activated")) {
     deactivation();
   }
 });
 
-let tabs = document.querySelectorAll(".tab-name");
-let tabContent = document.querySelectorAll(".tab-content");
-let tabId;
+var tabs = document.querySelectorAll(".tab-name");
+var tabContent = document.querySelectorAll(".tab-content");
+var tabId = void 0;
 
 function highlite() {
-  tabs.forEach(item => {
+  tabs.forEach(function (item) {
     item.classList.remove("is-highlated");
   });
   this.classList.add("is-highlated");
@@ -115,19 +108,17 @@ function highlite() {
 }
 
 function selectTabContent(tabId) {
-  tabContent.forEach(item => {
-    item.classList.contains(tabId)
-      ? item.classList.add("changed")
-      : item.classList.remove("changed");
+  tabContent.forEach(function (item) {
+    item.classList.contains(tabId) ? item.classList.add("changed") : item.classList.remove("changed");
   });
 }
 
-tabs.forEach(item => {
+tabs.forEach(function (item) {
   item.addEventListener("click", highlite);
 });
 
-let openWindow = document.getElementById("openModal");
-let closeWindow = document.getElementById("closeModal");
+var openWindow = document.getElementById("openModal");
+var closeWindow = document.getElementById("closeModal");
 
 function openModal() {
   if (!$("#overlay").hasClass("active")) {
@@ -150,15 +141,15 @@ function closeModal(e) {
 openWindow.addEventListener("click", openModal);
 closeWindow.addEventListener("click", closeModal);
 
-const array = [];
+var array = [];
 
-const cartNum = document.getElementById("cart");
-const cartMobile = document.getElementById("cart--hidden");
+var cartNum = document.getElementById("cart");
+var cartMobile = document.getElementById("cart--hidden");
 
 function pushUp() {
   function push(buy) {
     var buyNum = "(" + buy + ")";
-    let buyMob = "(" + buy + ")";
+    var buyMob = "(" + buy + ")";
     cartNum.innerHTML = buyNum;
     cartMobile.innerHTML = buyMob;
   }
@@ -176,7 +167,7 @@ function pushUp() {
 function pushDown() {
   function push(buy) {
     var buyNum = "(" + buy + ")";
-    let buyMob = "(" + buy + ")";
+    var buyMob = "(" + buy + ")";
     cartNum.innerHTML = buyNum;
     cartMobile.innerHTML = buyMob;
   }
@@ -188,14 +179,14 @@ function pushDown() {
   }
 }
 
-let buttons = document.querySelectorAll(".button--prod");
-buttons.forEach(function(element) {
+var buttons = document.querySelectorAll(".button--prod");
+buttons.forEach(function (element) {
   element.addEventListener("click", pushUp);
 });
 
-let openShop = document.querySelectorAll("#shopOpen");
+var openShop = document.querySelectorAll("#shopOpen");
 
-let closeShop = document.getElementById("closeShop");
+var closeShop = document.getElementById("closeShop");
 
 function openShopList(e) {
   if (!$(".shopping-list").hasClass("active")) {
@@ -203,15 +194,15 @@ function openShopList(e) {
   } else if ($(".shopping-list").hasClass("active")) {
     $(".shopping-list").remove("active");
   }
-  let shopButton = document.querySelectorAll(".shop-btn");
-  let icon = document.querySelector(".manage-icon");
+  var shopButton = document.querySelectorAll(".shop-btn");
+  var icon = document.querySelector(".manage-icon");
   if (icon.classList.contains("cross")) {
     icon.classList.remove("cross");
   } else {
     icon.classList.add("cross");
   }
 
-  for (let i = 0; i < shopButton.length; i++) {
+  for (var i = 0; i < shopButton.length; i++) {
     if (shopButton[i].classList.contains("shop-active")) {
       shopButton[i].classList.remove("shop-active");
     } else {
@@ -225,35 +216,56 @@ function closeShopModal(e) {
   e.target.parentNode.parentNode.classList.remove("active");
 }
 
-for (let item of openShop) {
-  item.addEventListener("click", openShopList);
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+  for (var _iterator = openShop[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    var item = _step.value;
+
+    item.addEventListener("click", openShopList);
+  }
+} catch (err) {
+  _didIteratorError = true;
+  _iteratorError = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion && _iterator.return) {
+      _iterator.return();
+    }
+  } finally {
+    if (_didIteratorError) {
+      throw _iteratorError;
+    }
+  }
 }
 
 closeShop.addEventListener("click", closeShopModal);
 
-let removeCartButtons = document.querySelectorAll(".danger__button");
-for (let i = 0; i < removeCartButtons.length; i++) {
-  let button = removeCartButtons[i];
+var removeCartButtons = document.querySelectorAll(".danger__button");
+for (var i = 0; i < removeCartButtons.length; i++) {
+  var button = removeCartButtons[i];
   button.addEventListener("click", removeCartItem);
 }
 
-let quantityInputs = document.querySelectorAll(".item__quantity");
-for (let i = 0; i < quantityInputs.length; i++) {
-  let input = quantityInputs[i];
+var quantityInputs = document.querySelectorAll(".item__quantity");
+for (var _i = 0; _i < quantityInputs.length; _i++) {
+  var input = quantityInputs[_i];
   input.addEventListener("change", quantityChanged);
 }
 
-let addToCart = document.querySelectorAll(".button--prod");
-for (let i = 0; i < addToCart.length; i++) {
-  let button = addToCart[i];
-  button.addEventListener("click", addToCartClicked);
+var addToCart = document.querySelectorAll(".button--prod");
+for (var _i2 = 0; _i2 < addToCart.length; _i2++) {
+  var _button = addToCart[_i2];
+  _button.addEventListener("click", addToCartClicked);
 }
 
 document.querySelector(".purchase").addEventListener("click", purchaseClicked);
 
 function purchaseClicked() {
   alert("Thank you for your purchase");
-  let shop = document.querySelector(".shopping__container");
+  var shop = document.querySelector(".shopping__container");
   while (shop.hasChildNodes()) {
     shop.removeChild(shop.firstChild);
   }
@@ -263,7 +275,7 @@ function purchaseClicked() {
 }
 
 function removeCartItem(e) {
-  let buttonClicked = e.target;
+  var buttonClicked = e.target;
   buttonClicked.parentNode.parentNode.remove();
   updateCartTotal();
   array.pop();
@@ -271,7 +283,7 @@ function removeCartItem(e) {
 }
 
 function quantityChanged(e) {
-  let input = e.target;
+  var input = e.target;
   if (isNaN(input.value) || input.value <= 0) {
     input.value = 1;
   }
@@ -279,72 +291,53 @@ function quantityChanged(e) {
 }
 
 function addToCartClicked(e) {
-  let button = e.target;
-  let shopItem = button.parentNode.parentNode.parentNode;
-  let title = shopItem.getElementsByClassName("products__text")[0].innerText;
-  let price = shopItem.getElementsByClassName("price")[0].innerText;
-  let imageSrc = shopItem.getElementsByClassName("image")[0].src;
+  var button = e.target;
+  var shopItem = button.parentNode.parentNode.parentNode;
+  var title = shopItem.getElementsByClassName("products__text")[0].innerText;
+  var price = shopItem.getElementsByClassName("price")[0].innerText;
+  var imageSrc = shopItem.getElementsByClassName("image")[0].src;
   addItemToCart(title, price, imageSrc);
   updateCartTotal();
 }
 
 function addItemToCart(title, price, imageSrc) {
-  let cartRow = document.createElement("div");
+  var cartRow = document.createElement("div");
   cartRow.classList.add("row");
-  let shoppingContainer = document.querySelector(".shopping__container");
-  let cartItemsNames = shoppingContainer.getElementsByClassName("item__name");
-  for (let i = 0; i < cartItemsNames.length; i++) {
-    if (cartItemsNames[i].innerText == title) {
+  var shoppingContainer = document.querySelector(".shopping__container");
+  var cartItemsNames = shoppingContainer.getElementsByClassName("item__name");
+  for (var _i3 = 0; _i3 < cartItemsNames.length; _i3++) {
+    if (cartItemsNames[_i3].innerText == title) {
       alert("This item is already added to a cart!");
       return;
     }
   }
-  let cartRowContents = `
-   <div class="item item__title">
-      <div class="item__title">
-         <div class="item__content item__name">${title}</div>
-         <img class="item__content item__image" src="${imageSrc}">
-      </div>
-  </div>
-  <div class="item item__price item__content item__bottle-price">${price.replace(
-    "USD",
-    ""
-  )}</div>
-  <input class="item item__quantity item__content item__input" type="number" id="quantity" value="1" min="1" max="30">
-  <div class="item item__remove">
-      <button class="item__button danger__button item__content">Remove</button>
-  </div>
-  `;
+  var cartRowContents = "\n   <div class=\"item item__title\">\n      <div class=\"item__title\">\n         <div class=\"item__content item__name\">" + title + "</div>\n         <img class=\"item__content item__image\" src=\"" + imageSrc + "\">\n      </div>\n  </div>\n  <div class=\"item item__price item__content item__bottle-price\">" + price.replace("USD", "") + "</div>\n  <input class=\"item item__quantity item__content item__input\" type=\"number\" id=\"quantity\" value=\"1\" min=\"1\" max=\"30\">\n  <div class=\"item item__remove\">\n      <button class=\"item__button danger__button item__content\">Remove</button>\n  </div>\n  ";
   cartRow.innerHTML = cartRowContents;
   shoppingContainer.append(cartRow);
-  cartRow
-    .getElementsByClassName("danger__button")[0]
-    .addEventListener("click", removeCartItem);
-  cartRow
-    .getElementsByClassName("item__quantity")[0]
-    .addEventListener("change", quantityChanged);
+  cartRow.getElementsByClassName("danger__button")[0].addEventListener("click", removeCartItem);
+  cartRow.getElementsByClassName("item__quantity")[0].addEventListener("change", quantityChanged);
 }
 
 function updateCartTotal() {
-  let cartItemContainer = document.getElementsByClassName("shopping-list")[0];
-  let cartRows = cartItemContainer.getElementsByClassName("row");
-  let total = 0;
-  for (let i = 0; i < cartRows.length; i++) {
-    let cartRow = cartRows[i];
-    let priceElement = cartRow.getElementsByClassName("item__price")[0];
-    let quantityElement = cartRow.getElementsByClassName("item__quantity")[0];
-    let price = parseFloat(priceElement.innerText.replace("$", ""));
-    let quantity = quantityElement.value;
+  var cartItemContainer = document.getElementsByClassName("shopping-list")[0];
+  var cartRows = cartItemContainer.getElementsByClassName("row");
+  var total = 0;
+  for (var _i4 = 0; _i4 < cartRows.length; _i4++) {
+    var cartRow = cartRows[_i4];
+    var priceElement = cartRow.getElementsByClassName("item__price")[0];
+    var quantityElement = cartRow.getElementsByClassName("item__quantity")[0];
+    var price = parseFloat(priceElement.innerText.replace("$", ""));
+    var quantity = quantityElement.value;
     total = total + price * quantity;
   }
   total = Math.round(total * 100) / 100;
   document.getElementsByClassName("cart-total")[0].innerText = "$" + total;
 }
 
-let textInformationLeft = document.querySelectorAll(".info__left");
-let textInformationRight = document.querySelectorAll(".info__right");
-let infoPopupLeft = document.querySelector(".info__popup--left");
-let infoPopupRight = document.querySelector(".info__popup--right");
+var textInformationLeft = document.querySelectorAll(".info__left");
+var textInformationRight = document.querySelectorAll(".info__right");
+var infoPopupLeft = document.querySelector(".info__popup--left");
+var infoPopupRight = document.querySelector(".info__popup--right");
 
 function showInfoTextLeft() {
   if (infoPopupLeft.classList.contains("active")) {
@@ -362,10 +355,10 @@ function showInfoTextRight() {
   }
 }
 
-for (let i = 0; i < textInformationLeft.length; i++) {
-  textInformationLeft[i].addEventListener("click", showInfoTextLeft);
+for (var _i5 = 0; _i5 < textInformationLeft.length; _i5++) {
+  textInformationLeft[_i5].addEventListener("click", showInfoTextLeft);
 }
 
-for (let i = 0; i < textInformationRight.length; i++) {
-  textInformationRight[i].addEventListener("click", showInfoTextRight);
+for (var _i6 = 0; _i6 < textInformationRight.length; _i6++) {
+  textInformationRight[_i6].addEventListener("click", showInfoTextRight);
 }
